@@ -1,0 +1,50 @@
+<h1>Proponents</h1>
+
+<%= link_to 'Novo Proponente', new_proponent_path %>
+
+<table>
+  <thead>
+    <th>
+      <td>Nome</td>
+      <td>CPF</td>
+      <td>Data de Nascimento</td>
+      <td></td>
+    </th>
+  </thead>
+
+  <tbody>
+    <% @proponents.each do |proponent| %>
+      <tr>
+        <td><%= proponent.name %></td>
+        <td><%= proponent.cpf %></td>
+        <td><%= proponent.birthdate %></td>
+        <td>
+          <ul>
+            <li>
+              <%= link_to 'Acessar', proponent %>
+            </li>
+
+            <li>
+              <%= link_to 'Editar', edit_proponent_path(proponent) %>
+            </li>
+
+            <li>
+              <%= link_to 'Remover', @proponent, data: { turbo_method: :delete } %>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <% if @proponents.empty? %>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          Nenhum proponent encontrado
+        </td>
+      </tr>
+    </tfoot>
+  <% end %>
+</table>
+
