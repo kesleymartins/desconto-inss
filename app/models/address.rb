@@ -7,4 +7,8 @@ class Address < ApplicationRecord
   validates :state, presence: true
 
   belongs_to :proponent
+
+  def display
+    "#{street}, #{number}, #{district}, #{zip_code}, #{city}, #{state}"
+  end
 end

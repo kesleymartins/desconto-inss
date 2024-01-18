@@ -13,6 +13,16 @@
 </div>
 
 <div>
+  <span>Data Nascimento:</span>
+  <span><%= @proponent.birthdate %></span>
+</div>
+
+<div>
+  <span>Endereço:</span>
+  <span><%= @proponent.address.display %></span>
+</div>
+
+<div>
   <%= link_to 'Editar', edit_proponent_path(@proponent) %>
   <%= link_to 'Remover', @proponent, data: { turbo_method: :delete } %>
 </div>
