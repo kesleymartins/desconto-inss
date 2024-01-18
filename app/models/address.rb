@@ -5,4 +5,6 @@ class Address < ApplicationRecord
   validates :zip_code, presence: true
   validates :city, presence: true
   validates :state, presence: true
+
+  belongs_to :proponent
 end
