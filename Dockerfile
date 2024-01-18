@@ -8,6 +8,12 @@ RUN gem install bundler
 
 COPY Gemfile* ./
 
+RUN useradd -ms /bin/bash usuario
+RUN chown -R usuario:usuario /docker/app/*
+RUN chown -R usuario:usuario /usr/local/bundle
+
+USER usuario
+
 RUN bundle install
 
 ADD . /docker/app
