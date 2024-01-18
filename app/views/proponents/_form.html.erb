@@ -22,6 +22,37 @@
     <%= form.date_field :birthdate %>
   </div>
 
+  <%= form.fields_for :address do |a_form| %>
+    <div>
+      <%= a_form.label :street %>
+      <%= a_form.text_field :street %>
+    </div>
+
+    <div>
+      <%= a_form.label :discrict %>
+      <%= a_form.text_field :district %>
+    </div>
+
+    <div>
+      <%= a_form.label :number %>
+      <%= a_form.text_field :number %>
+    </div>
+    <div>
+      <%= a_form.label :zip_code %>
+      <%= a_form.text_field :zip_code %>
+    </div>
+
+    <div>
+      <%= a_form.label :city %>
+      <%= a_form.text_field :city %>
+    </div>
+
+    <div>
+      <%= a_form.label :state %>
+      <%= a_form.text_field :state %>
+    </div>
+  <% end %>
+
   <div>
     <%= form.submit 'Salvar' %>
   </div>

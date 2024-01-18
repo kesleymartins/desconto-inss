@@ -8,6 +8,7 @@ class ProponentsController < ApplicationController
 
   def new
     @proponent = Proponent.new
+    @proponent.build_address
   end
 
   def edit; end
@@ -39,7 +40,12 @@ class ProponentsController < ApplicationController
   private
 
   def proponent_params
-    params.require(:proponent).permit(:name, :cpf, :birthdate)
+    params.require(:proponent).permit(
+      :name,
+      :cpf,
+      :birthdate,
+      address_attributes: %i[street district number zip_code city state]
+    )
   end
 
   def set_proponent
