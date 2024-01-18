@@ -1,4 +1,12 @@
 <%= form_with(model: @proponent) do |form| %>
+  <% if @proponent.errors.any? %>
+    <ul>
+      <% @proponent.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
