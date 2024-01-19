@@ -5,7 +5,7 @@ export default class extends Controller {
   cpf() {
     this.element.value = formatGeneral(this.element.value, {
       blocks: [3, 3, 3, 2],
-      delimiters: ['-', '-', '-'],
+      delimiters: ['.', '.', '-'],
       numericOnly: true
     })
   }
