@@ -25,7 +25,12 @@
 
         <div class="col-3">
           <%= form.label :cpf, class: 'form-label' %>
-          <%= form.text_field :cpf, class: 'form-control' %>
+          <%= form.text_field :cpf, 
+            data: {
+              controller: 'mask',
+              action: 'input->mask#cpf'
+            },
+            class: 'form-control' %>
         </div>
 
         <div class="col-3">
@@ -59,7 +64,12 @@
         <div class="row mb-3">
           <div class="col-4">
             <%= a_form.label :zip_code, class: 'form-label' %>
-            <%= a_form.text_field :zip_code, class: 'form-control' %>
+            <%= a_form.text_field :zip_code, 
+              data: {
+                controller: 'mask',
+                action: 'input->mask#zipCode'
+              }, 
+              class: 'form-control' %>
           </div>
 
           <div class="col-4">
