@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_18_214947) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_19_015454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_214947) do
     t.string "number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "proponent_id", null: false
+    t.index ["proponent_id"], name: "index_phone_numbers_on_proponent_id"
   end
 
   create_table "proponents", force: :cascade do |t|
@@ -42,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_214947) do
   end
 
   add_foreign_key "addresses", "proponents"
+  add_foreign_key "phone_numbers", "proponents"
 end
