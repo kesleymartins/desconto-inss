@@ -25,6 +25,33 @@
   </div>
 </div>
 
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      Telefones
+    </h5>
+
+    <div class="mb-3">
+      <ul class="list-group list-group-flush">
+        <%= turbo_frame_tag :phone_numbers do %>
+          <% @proponent.phone_numbers.each do |phone_number| %>
+            <%= render phone_number %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+
+    <%= turbo_frame_tag :phone_number_form do %>
+      <%= link_to 'Adicionar número', 
+        new_proponent_phone_number_path(@proponent), 
+        data: { turbo_frame: :phone_number_form }, 
+        class: 'btn btn-primary'
+      %>
+    <% end %>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-body">
     <div class="d-flex justify-content-center">
