@@ -1,59 +1,82 @@
 <%= form_with(model: @proponent) do |form| %>
   <% if @proponent.errors.any? %>
-    <ul>
-      <% @proponent.errors.each do |error| %>
-        <li><%= error.full_message %></li>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <span>Corrija os seguintes erros antes de prosseguir</span>
+    </div>
+
+    <div class="card mb-3">
+      <ul class="list-group list-group-flush">
+        <% @proponent.errors.each do |error| %>
+          <li class="list-group-item">
+            <%= error.full_message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <%= form.label :name, class: 'form-label' %>
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="col-3">
+          <%= form.label :cpf, class: 'form-label' %>
+          <%= form.text_field :cpf, class: 'form-control' %>
+        </div>
+
+        <div class="col-3">
+          <%= form.label :birthdate, class: 'form-label' %>
+          <%= form.date_field :birthdate, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <%= form.fields_for :address do |a_form| %>
+        <div class="row mb-3">
+          <div class="col-6">
+            <%= a_form.label :street, class: 'form-label' %>
+            <%= a_form.text_field :street, class: 'form-control' %>
+          </div>
+
+          <div class="col-2">
+            <%= a_form.label :number, class: 'form-label' %>
+            <%= a_form.text_field :number, class: 'form-control' %>
+          </div>
+
+          <div class="col-4">
+            <%= a_form.label :discrict, class: 'form-label' %>
+            <%= a_form.text_field :district, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-4">
+            <%= a_form.label :zip_code, class: 'form-label' %>
+            <%= a_form.text_field :zip_code, class: 'form-control' %>
+          </div>
+
+          <div class="col-4">
+            <%= a_form.label :city, class: 'form-label' %>
+            <%= a_form.text_field :city, class: 'form-control' %>
+          </div>
+
+          <div class="col-4">
+            <%= a_form.label :state, class: 'form-label' %>
+            <%= a_form.text_field :state, class: 'form-control' %>
+          </div>
+        </div>
       <% end %>
-    </ul>
-  <% end %>
-
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
-  </div>
-
-  <div>
-    <%= form.label :birthdate %>
-    <%= form.date_field :birthdate %>
-  </div>
-
-  <%= form.fields_for :address do |a_form| %>
-    <div>
-      <%= a_form.label :street %>
-      <%= a_form.text_field :street %>
-    </div>
-
-    <div>
-      <%= a_form.label :discrict %>
-      <%= a_form.text_field :district %>
-    </div>
-
-    <div>
-      <%= a_form.label :number %>
-      <%= a_form.text_field :number %>
-    </div>
-    <div>
-      <%= a_form.label :zip_code %>
-      <%= a_form.text_field :zip_code %>
-    </div>
-
-    <div>
-      <%= a_form.label :city %>
-      <%= a_form.text_field :city %>
-    </div>
-
-    <div>
-      <%= a_form.label :state %>
-      <%= a_form.text_field :state %>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.submit 'Salvar' %>
+  <div class="text-end">
+    <%= form.submit 'Salvar', class: 'btn btn-primary' %>
   </div>
 <% end %>

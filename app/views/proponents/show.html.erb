@@ -1,28 +1,39 @@
-<h1><%= @proponent.name %></h1>
-
-<%= link_to 'Voltar', proponents_path %>
-
-<div>
-  <span>CPF:</span>
-  <span><%= @proponent.cpf %></span>
+<div class="mb-3">
 </div>
 
-<div>
-  <span>Data Nascimento:</span>
-  <span><%= @proponent.birthdate %></span>
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <h5 class="card-title">
+        <%= @proponent.name %>
+      </h5>
+
+      <div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div>
+        <span class="fw-semibold">CPF:</span>
+        <span class="card-text"><%= @proponent.cpf %></span>
+      </div>
+
+      <div>
+        <span class="fw-semibold">Data Nascimento:</span>
+        <span class="card-text"><%= @proponent.birthdate %></span>
+      </div>
+
+      <div>
+        <span class="fw-semibold">Endereço:</span>
+        <span class="card-text"><%= @proponent.address.display %></span>
+      </div>
+    </div>
+
+    <div>
+      <%= link_to 'Voltar', proponents_path, class: 'card-link' %>
+      <%= link_to 'Editar', edit_proponent_path(@proponent), class: 'card-link' %>
+      <%= link_to 'Remover', @proponent, data: { turbo_method: :delete }, class: 'card-link' %>
+    </div>
+  </div>
 </div>
 
-<div>
-  <span>Data Nascimento:</span>
-  <span><%= @proponent.birthdate %></span>
-</div>
-
-<div>
-  <span>Endereço:</span>
-  <span><%= @proponent.address.display %></span>
-</div>
-
-<div>
-  <%= link_to 'Editar', edit_proponent_path(@proponent) %>
-  <%= link_to 'Remover', @proponent, data: { turbo_method: :delete } %>
-</div>

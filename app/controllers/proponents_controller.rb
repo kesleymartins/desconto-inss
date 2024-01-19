@@ -1,5 +1,6 @@
 class ProponentsController < ApplicationController
   before_action :set_proponent, only: %i[show edit update destroy]
+
   def index
     @proponents = Proponent.all
   end
@@ -17,7 +18,7 @@ class ProponentsController < ApplicationController
     @proponent = Proponent.new(proponent_params)
 
     if @proponent.save
-      redirect_to @proponent
+      redirect_to @proponent, notice: 'Funcionário criado com sucesso!'
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +26,7 @@ class ProponentsController < ApplicationController
 
   def update
     if @proponent.update(proponent_params)
-      redirect_to @proponent
+      redirect_to @proponent, notice: 'Funcionário atualizado com sucesso!'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +35,7 @@ class ProponentsController < ApplicationController
   def destroy
     @proponent.destroy
 
-    redirect_to proponents_path
+    redirect_to proponents_path, notice: 'Funcionário removido com sucesso!'
   end
 
   private
