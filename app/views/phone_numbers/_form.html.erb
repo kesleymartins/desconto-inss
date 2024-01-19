@@ -1,0 +1,27 @@
+<%= form_with(model: [@proponent, @phone_number]) do |form| %>
+  <% if @phone_number.errors.any? %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <span>Corrija os seguintes erros antes de prosseguir</span>
+    </div>
+
+    <div class="card mb-3">
+      <ul class="list-group list-group-flush">
+        <% @phone_number.errors.each do |error| %>
+          <li class="list-group-item">
+            <%= error.full_message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row mb-3">
+    <div class="col-3">
+      <%= form.text_field :number, placeholder: 'Número', class: 'form-control', autofocus: true %>
+    </div>
+
+    <div class="col-3">
+      <%= form.submit 'Salvar', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

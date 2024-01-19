@@ -1,0 +1,11 @@
+<%= turbo_stream.append :phone_numbers do %>
+  <%= render @phone_number %>
+<% end %>
+
+<%= turbo_stream.update :phone_number_form do %>
+  <%= link_to 'Adicionar número', 
+    new_proponent_phone_number_path(@proponent), 
+    data: { turbo_frame: :phone_number_form }, 
+    class: 'btn btn-primary'
+  %>
+<% end %>

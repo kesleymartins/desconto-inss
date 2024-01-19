@@ -1,0 +1,11 @@
+<%= turbo_frame_tag dom_id(phone_number) do %>
+  <li class="list-group-item">
+    <div class="d-flex justify-content-between">
+      <span>
+        <%= phone_number.number %>
+      </span>
+
+      <%= link_to 'Remover', [@proponent, phone_number], data: { turbo_method: :delete }, class: 'btn btn-danger' %>
+    </div>
+  </li>
+<% end %>
