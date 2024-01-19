@@ -20,8 +20,8 @@ export default class extends Controller {
 
   phoneNumber() {
     this.element.value = formatGeneral(this.element.value, {
-      blocks: [0, 2, 1, 4, 4],
-      delimiters: ['(', ') ', ' ', '-'],
+      blocks: [0, 2, 5, 4],
+      delimiters: ['(', ') ', '-'],
       numericOnly: true
     })
   }
