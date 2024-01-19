@@ -51,18 +51,16 @@
       <% end %>
     </tbody>
   </table>
+
+  <div class="d-flex justify-content-center">
+    <%= paginate @proponents %>
+  </div>
 <% end %>
 
 <% if @proponents.empty? %>
-  <tfoot>
-    <tr>
-      <td colspan="5">
-        <div class="alert alert-primary text-center">
-          <span>
-            Nenhum proponente encontrado
-          </span>
-        </div>
-      </td>
-    </tr>
-  </tfoot>
+  <div class="alert alert-primary text-center">
+    <span>
+      Nenhum funcionário encontrado
+    </span>
+  </div>
 <% end %>
