@@ -12,6 +12,7 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'faker', '~> 3.2', '>= 3.2.3'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
