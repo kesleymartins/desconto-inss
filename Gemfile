@@ -14,6 +14,7 @@ gem "bootsnap", require: false
 gem 'faker', '~> 3.2', '>= 3.2.3'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'rails-i18n', '~> 7.0', '>= 7.0.8'
+gem 'chartkick', '~> 5.0', '>= 5.0.5'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
