@@ -7,4 +7,8 @@ class Proponent < ApplicationRecord
   accepts_nested_attributes_for :address
 
   has_many :phone_numbers, dependent: :destroy
+
+  scope :count_by_salary_range, lambda { |min, max|
+    where(salary: min..max).count
+  }
 end
