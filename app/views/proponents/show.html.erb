@@ -15,15 +15,9 @@
       <div>
         <span class="fw-semibold">Data Nascimento:</span>
 
-        <% if @proponent.birthdate %>
-          <span class="card-text">
-            <%= @proponent.birthdate.strftime('%d/%m/%Y') %>
-          </span>
-        <% else %>
-          <span class="card-text fst-italic">
-            Não informado
-          </span>
-        <% end %>
+        <span class="card-text <%= 'fst-italic' unless @proponent.birthdate %>">
+          <%= @proponent.birthdate&.strftime('%d/%m/%Y') or 'Não Informado' %>
+        </span>
       </div>
     </div>
 
@@ -31,29 +25,19 @@
       <div>
         <span class="fw-semibold">Salário:</span>
 
-        <% if @proponent.salary %>
-          <span class="card-text">
-            R$ <%= @proponent.salary %>
-          </span>
-        <% else %>
-          <span class="card-text fst-italic">
-            Não informado
-          </span>
-        <% end %>
+        <span class="card-text <%= 'fst-italic' unless @proponent.salary %>">
+          <%= 'R$' if @proponent.salary %>
+          <%= @proponent.salary or 'Não Informado' %>
+        </span>
       </div>
 
       <div>
         <span class="fw-semibold">Desconto:</span>
 
-        <% if @proponent.discount %>
-          <span class="card-text">
-            R$ <%= @proponent.discount %>
-          </span>
-        <% else %>
-          <span class="card-text fst-italic">
-            Não informado
-          </span>
-        <% end %>
+        <span class="card-text <%= 'fst-italic' unless @proponent.discount %>">
+          <%= 'R$' if @proponent.discount %>
+          <%= @proponent.discount or 'Não Informado' %>
+        </span>
       </div>
     </div>
 
