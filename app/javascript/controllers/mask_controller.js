@@ -25,4 +25,21 @@ export default class extends Controller {
       numericOnly: true
     })
   }
+
+  money() {
+    this.element.value = this.element.value.replaceAll(/[^0-9]/g, '')
+
+    while(this.element.value.length < 3) {
+      this.element.value = '0' + this.element.value
+    }
+
+    if (this.element.value.length > 3 && this.element.value[0] === '0') {
+      this.element.value = this.element.value.substring(1)
+    }
+
+    const cents = this.element.value.slice(-2)
+    const number = this.element.value.slice(0, -2)
+
+    this.element.value = `${number}.${cents}`
+  }
 }
