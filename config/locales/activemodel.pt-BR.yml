@@ -1,4 +1,4 @@
-pt_BR:
+pt-BR:
   errors:
     format: "%{attribute} %{message}"
     messages:
