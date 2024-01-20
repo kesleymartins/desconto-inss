@@ -11,7 +11,7 @@ Faker::Config.locale = 'pt-BR'
 10.times do
   proponent = Proponent.create!({
     name: Faker::Name.name,
-    cpf: Faker::Number.number(digits: 11),
+    cpf: Faker::IDNumber.brazilian_citizen_number(formatted: true),
     birthdate: Faker::Date.birthday(min_age: 18, max_age: 99)
   })
 
