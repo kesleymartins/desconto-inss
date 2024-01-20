@@ -17,6 +17,8 @@
         <th scope="col">Nome</th>
         <th scope="col">CPF</th>
         <th scope="col">Data de Nascimento</th>
+        <th scope="col">Salário</th>
+        <th scope="col">Desconto</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -26,7 +28,17 @@
         <tr>
           <td><%= proponent.name %></td>
           <td><%= proponent.cpf %></td>
-          <td><%= proponent.birthdate.strftime('%d/%m/%Y') %></td>
+          <td>
+            <%= proponent.birthdate&.strftime('%d/%m/%Y') or '-' %>
+          </td>
+          <td>
+            <%= 'R$' if proponent.salary %>
+            <%= proponent.salary or '-'%>
+          </td>
+          <td>
+            <%= 'R$' if proponent.discount %>
+            <%= proponent.discount or '-' %>
+          </td>
           <td>
             <div class="dropdown text-center">
               <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
