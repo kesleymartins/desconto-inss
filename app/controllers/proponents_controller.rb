@@ -38,6 +38,10 @@ class ProponentsController < ApplicationController
     redirect_to proponents_path, notice: 'Funcionário removido com sucesso!'
   end
 
+  def report
+    @data = ProponentService.report
+  end
+
   private
 
   def proponent_params
