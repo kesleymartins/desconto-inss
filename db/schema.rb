@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_19_015454) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_20_000744) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_19_015454) do
     t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "salary", precision: 8, scale: 2
+    t.decimal "discount", precision: 8, scale: 2
   end
 
   add_foreign_key "addresses", "proponents"
