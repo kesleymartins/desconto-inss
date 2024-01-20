@@ -1,0 +1,54 @@
+pt_BR:
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "%{count} hora atrás"
+        other: "%{count} horas atrás"
+      about_x_months:
+        one: "%{count} mês atrás"
+        other: "%{count} meses atrás"
+      about_x_years:
+        one: "%{count} ano atrás"
+        other: "%{count} anos atrás"
+      almost_x_years:
+        one: quase %{count} ano atrás
+        other: quase %{count} anos atrás
+      half_a_minute: meio minuto atrás
+      less_than_x_seconds:
+        one: menos de %{count} segundo atrás
+        other: menos de %{count} segundos atrás
+      less_than_x_minutes:
+        one: menos de um minuto atrás
+        other: menos de %{count} minutos atrás
+      over_x_years:
+        one: mais de %{count} ano atrás
+        other: mais de %{count} anos atrás
+      x_seconds:
+        one: "%{count} segundo atrás"
+        other: "%{count} segundos atrás"
+      x_minutes:
+        one: "%{count} minuto atrás"
+        other: "%{count} minutos atrás"
+      x_days:
+        one: "%{count} dia atrás"
+        other: "%{count} dias atrás"
+      x_months:
+        one: "%{count} mês atrás"
+        other: "%{count} meses atrás"
+      x_years:
+        one: "%{count} ano atrás"
+        other: "%{count} anos atrás"
+    prompts:
+      second: Segundo
+      minute: Minuto
+      hour: Hora
+      day: Dia
+      month: Mês
+      year: Ano
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar 
+      submit: Salvar 
+      update: Atualizar 

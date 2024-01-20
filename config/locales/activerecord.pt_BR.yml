@@ -1,0 +1,33 @@
+pt_BR:
+  attributes:
+    created_at: 'Criado em'
+    updated_at: 'Atualizado em'
+  errors:
+    messages:
+      required: 'É requerido'
+      taken: 'Já existe'
+  activerecord:
+    models:
+      proponent: 'Funcionário'
+      address: 'Endereço'
+    attributes:
+      proponent:
+        name: 'Nome'
+        cpf: 'CPF'
+        birthdate: 'Data de Nascimento'
+        salary: 'Salário'
+        discount: 'Desconto INSS'
+      address:
+        street: 'Rua'
+        district: 'Bairro'
+        number: 'Nº'
+        zip_code: 'CEP'
+        city: 'Cidade'
+        state: 'Estado'
+
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
