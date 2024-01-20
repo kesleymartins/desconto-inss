@@ -14,13 +14,52 @@
 
       <div>
         <span class="fw-semibold">Data Nascimento:</span>
-        <span class="card-text"><%= @proponent.birthdate %></span>
+
+        <% if @proponent.birthdate %>
+          <span class="card-text">
+            <%= @proponent.birthdate.strftime('%d/%m/%Y') %>
+          </span>
+        <% else %>
+          <span class="card-text fst-italic">
+            Não informado
+          </span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div>
+        <span class="fw-semibold">Salário:</span>
+
+        <% if @proponent.salary %>
+          <span class="card-text">
+            R$ <%= @proponent.salary %>
+          </span>
+        <% else %>
+          <span class="card-text fst-italic">
+            Não informado
+          </span>
+        <% end %>
       </div>
 
       <div>
-        <span class="fw-semibold">Endereço:</span>
-        <span class="card-text"><%= @proponent.address.display %></span>
+        <span class="fw-semibold">Desconto:</span>
+
+        <% if @proponent.discount %>
+          <span class="card-text">
+            R$ <%= @proponent.discount %>
+          </span>
+        <% else %>
+          <span class="card-text fst-italic">
+            Não informado
+          </span>
+        <% end %>
       </div>
+    </div>
+
+    <div>
+      <span class="fw-semibold">Endereço:</span>
+      <span class="card-text"><%= @proponent.address.display %></span>
     </div>
   </div>
 </div>
