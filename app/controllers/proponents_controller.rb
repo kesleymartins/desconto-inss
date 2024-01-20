@@ -45,6 +45,8 @@ class ProponentsController < ApplicationController
       :name,
       :cpf,
       :birthdate,
+      :salary,
+      :discount,
       address_attributes: %i[street district number zip_code city state]
     )
   end
