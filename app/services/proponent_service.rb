@@ -1,6 +1,17 @@
 module ProponentService
   extend self
 
+  def report
+    data = {}
+
+    tax_ranges.each do |range|
+      label = "De #{'%.2f' % range[:start]} Até #{'%.2f' % range[:end]}"
+      data[label] = Proponent.count_by_salary_range(range[:start], range[:end])
+    end
+
+    data
+  end
+
   def calculate_discount(salary:)
     discounts = []
 
