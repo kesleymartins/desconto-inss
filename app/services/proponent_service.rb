@@ -1,7 +1,7 @@
-module DiscountService
+module ProponentService
   extend self
 
-  def calculate(salary:)
+  def calculate_discount(salary:)
     discounts = []
 
     tax_ranges.each do |range|

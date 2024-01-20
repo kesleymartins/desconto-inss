@@ -2,7 +2,7 @@ class SalariesController < ApplicationController
   def calculate_discount
     salary = params[:salary].to_f
 
-    discount = DiscountService.calculate(salary: salary)
+    discount = ProponentService.calculate_discount(salary:)
 
     render json: { discount: discount }
   end

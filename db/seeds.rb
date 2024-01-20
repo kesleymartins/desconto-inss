@@ -8,7 +8,7 @@
 
 10.times do
   salary = Faker::Number.between(from: 600.00, to: 7_000.00)
-  discount = DiscountService.calculate(salary: salary)
+  discount = ProponentService.calculate_discount(salary:)
 
   proponent = Proponent.create!({
     name: Faker::Name.name,
