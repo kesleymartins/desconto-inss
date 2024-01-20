@@ -6,19 +6,22 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Faker::Config.locale = 'pt-BR'
-
 10.times do
+  salary = Faker::Number.between(from: 600.00, to: 7_000.00)
+  discount = DiscountService.calculate(salary: salary)
+
   proponent = Proponent.create!({
     name: Faker::Name.name,
     cpf: Faker::IDNumber.brazilian_citizen_number(formatted: true),
-    birthdate: Faker::Date.birthday(min_age: 18, max_age: 99)
+    birthdate: Faker::Date.birthday(min_age: 18, max_age: 99),
+    salary: salary,
+    discount: discount
   })
 
   proponent.create_address!({
     street: Faker::Address.street_name,
     number: Faker::Address.building_number,
-    district: Faker::Space.galaxy,
+    district: Faker::Games::WorldOfWarcraft.hero,
     zip_code: Faker::Address.zip_code,
     city: Faker::Address.city,
     state: Faker::Address.state,
