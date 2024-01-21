@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :proponents do
     resources :phone_numbers, only: %i[new create destroy]
 
+    member do
+      patch 'update_salary'
+    end
+
     collection do
       get 'report'
     end

@@ -1,5 +1,5 @@
 class ProponentsController < ApplicationController
-  before_action :set_proponent, only: %i[show edit update destroy]
+  before_action :set_proponent, only: %i[show edit update destroy update_salary]
 
   def index
     @proponents = Proponent.page(params[:page])
@@ -40,6 +40,12 @@ class ProponentsController < ApplicationController
 
   def report
     @data = ProponentService.report
+  end
+
+  def update_salary
+    UpdateSalaryJob.perform_async(@proponent.id, proponent_params[:salary].to_f)
+
+    turbo_stream
   end
 
   private
