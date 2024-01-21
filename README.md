@@ -1,24 +1,19 @@
-# README
+# Desconto-INSS
+Avaliação técnica de expressão e estilo.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dependências
 
-Things you may want to cover:
+- Docker
 
-* Ruby version
+## Configuração
 
-* System dependencies
+```
+# Setup da aplicação
+sh docker compose up -d --build
 
-* Configuration
+# Setup do banco de dados
+docker exec di-app rails db:setup
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Polula o banco de dados com informações
+docker exec di-app rails db:seed
+```
