@@ -10,6 +10,8 @@ COPY --chown=usuario:usuario . /docker/app
 
 RUN gem install bundler && bundle install 
 
+RUN gem install foreman
+
 EXPOSE 3000
 
-CMD [ "bundle","exec", "puma", "config.ru"]
+CMD ["foreman", "start"]
