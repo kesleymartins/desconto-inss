@@ -1,0 +1,17 @@
+<div>
+  <span class="fw-semibold">Salário:</span>
+
+  <span class="card-text <%= 'fst-italic' unless proponent.salary %>">
+    <%= 'R$' if proponent.salary %>
+    <%= proponent.salary or 'Não Informado' %>
+  </span>
+</div>
+
+<div>
+  <span class="fw-semibold">Desconto:</span>
+
+  <span class="card-text <%= 'fst-italic' unless proponent.discount %>">
+    <%= 'R$' if proponent.discount %>
+    <%= proponent.discount or 'Não Informado' %>
+  </span>
+</div>
