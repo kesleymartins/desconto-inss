@@ -8,6 +8,8 @@ services:
     environment:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: postgres
+    networks:
+      - di-network
 
   app:
     container_name: di-app
@@ -18,6 +20,19 @@ services:
       - .:/docker/app
     depends_on:
       - db
+    networks:
+      - di-network
+
+  redis:
+    container_name: di-redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - di-network
 
 volumes:
   postgres:
+
+networks:
+  di-network:
