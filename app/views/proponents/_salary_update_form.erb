@@ -1,0 +1,31 @@
+<%= turbo_frame_tag :salary_update_form do %>
+  <div data-controller="update-salary">
+    <%= form_with(
+      model: [:update_salary, proponent], 
+      class: ' d-none',
+      data: { update_salary_target: 'form' }) do |f| 
+    %>
+      <div class="d-flex justify-content-between">
+        <%= f.text_field:salary,
+          data: {
+            controller: 'mask',
+            action: 'input->mask#money',
+          }, 
+          class: 'form-control' 
+        %>
+
+        <%= f.submit 'Salvar', class: 'btn btn-primary ms-2' %>
+      </div>
+    <% end %>
+
+    <%= button_tag 'Novo Salário', 
+      class: 'btn btn-primary',
+      type: 'button',
+      data: {
+        controller: 'toggle', 
+        action: 'click->update-salary#toggle',
+        update_salary_target: "trigger"
+      }
+    %>
+  </div>
+<% end %>
