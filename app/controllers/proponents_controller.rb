@@ -5,7 +5,8 @@ class ProponentsController < ApplicationController
     @proponents = Proponent.page(params[:page])
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @proponent = Proponent.new
@@ -62,6 +63,6 @@ class ProponentsController < ApplicationController
   end
 
   def set_proponent
-    @proponent = Proponent.find(params[:id])
+    @proponent = Proponent.includes(%i[address phone_numbers]).find(params[:id])
   end
 end
