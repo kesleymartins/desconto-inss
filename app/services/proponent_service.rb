@@ -5,7 +5,7 @@ module ProponentService
     data = {}
 
     tax_ranges.each do |range|
-      label = "De #{'%.2f' % range[:start]} Até #{'%.2f' % range[:end]}"
+      label = format('De %<start>.2f até %<end>.2f', start: range[:start], end: range[:end])
       data[label] = Proponent.count_by_salary_range(range[:start], range[:end])
     end
 
