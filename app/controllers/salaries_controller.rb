@@ -4,6 +4,6 @@ class SalariesController < ApplicationController
 
     discount = ProponentService.calculate_discount(salary:)
 
-    render json: { discount: discount }
+    render json: { discount: }
   end
 end
